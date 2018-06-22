@@ -1,7 +1,10 @@
 {
-  "name": "electron-prebuilt-compile",
-  "version": "2.0.2",
-  "description": "electron-prebuilt that automatically understands Babel + React + LESS",
+  "name": "@barco/electron-prebuilt-compile",
+  "version": "2.0.3",
+  "publishConfig": {
+    "registry": "https://bin.barco.com/artifactory/api/npm/npm-local"
+  },
+  "description": "electron-prebuilt that automatically understands Babel + LESS",
   "bin": {
     "electron": "lib/cli.js"
   },
@@ -32,11 +35,8 @@
   },
   "homepage": "https://github.com/paulcbetts/electron-prebuilt-compile",
   "dependencies": {
-    "babel-plugin-array-includes": "^2.0.3",
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-preset-es2016-node5": "^1.1.2",
-    "babel-preset-react": "^6.24.1",
-    "electron": "2.0.2",
+    "babel-preset-node8": "^1.1.2",
+    "electron": "2.0.3",
     "electron-compile": "*",
     "electron-compilers": "*",
     "yargs": "^6.6.0"
