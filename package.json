@@ -1,6 +1,6 @@
 {
   "name": "@barco/electron-prebuilt-compile",
-  "version": "3.0.0-beta.7",
+  "version": "3.0.0",
   "publishConfig": {
     "registry": "https://bin.barco.com/artifactory/api/npm/npm-local"
   },
@@ -36,7 +36,7 @@
   "homepage": "https://github.com/paulcbetts/electron-prebuilt-compile",
   "dependencies": {
     "babel-preset-node8": "^1.1.2",
-    "electron": "3.0.0-beta.7",
+    "electron": "3.0.0",
     "electron-compile": "*",
     "electron-compilers": "*",
     "yargs": "^6.6.0"
