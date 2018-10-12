@@ -3,6 +3,16 @@ import fs from 'fs';
 import path from 'path';
 import {init} from 'electron-compile';
 
+if ('versions' in process && process.versions.electron === "4.0.0-beta.2") {
+  fs.statSyncNoException = (...args) => {
+    try {
+      return fs.statSync(...args);
+    } catch (e) {
+      return null;
+    }
+  };
+}
+
 function findPackageJson(initScript) {
   if (initScript === '/' || initScript.match(/^[A-Za-z]:$/)) {
     throw new Error("Can't find package.json");
