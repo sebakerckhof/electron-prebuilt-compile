@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import {init} from 'electron-compile';
 
-if ('versions' in process && process.versions.electron === "4.0.0-beta.2") {
+if (!statSyncNoException in fs) {
   fs.statSyncNoException = (...args) => {
     try {
       return fs.statSync(...args);
