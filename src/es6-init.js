@@ -3,14 +3,16 @@ import fs from 'fs';
 import path from 'path';
 import {init} from 'electron-compile';
 
-if (!statSyncNoException in fs) {
-  fs.statSyncNoException = (...args) => {
+function statSyncNoException(...args) {
+  if (statSyncNoException in fs) {
+    return fs.statSyncNoException(...args);
+  } else {
     try {
       return fs.statSync(...args);
     } catch (e) {
       return null;
     }
-  };
+  }
 }
 
 function findPackageJson(initScript) {
@@ -21,7 +23,7 @@ function findPackageJson(initScript) {
   // Walk up the parent directories until we find package.json. Make sure that
   // we're not actually stumbling upon a parent npm package
   let ret = path.join(initScript, 'package.json')
-  if (fs.statSyncNoException(ret) && !path.resolve(path.dirname(ret), '..').match(/[\\\/]node_modules$/i)) {
+  if (statSyncNoException(ret) && !path.resolve(path.dirname(ret), '..').match(/[\\\/]node_modules$/i)) {
     return ret;
   }
 
