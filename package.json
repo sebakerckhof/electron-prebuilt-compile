@@ -1,10 +1,8 @@
 {
-  "name": "@barco/electron-prebuilt-compile",
+  "name": "@sebak/electron-prebuilt-compile",
   "version": "5.0.1",
-  "publishConfig": {
-    "registry": "https://bin.barco.com/artifactory/api/npm/npm-local"
-  },
   "description": "electron-prebuilt that automatically understands Babel + LESS",
+  "public": true,
   "bin": {
     "electron": "lib/cli.js"
   },
